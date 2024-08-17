@@ -2,7 +2,7 @@ package main
 
 import (
 	"awesomeProject/models"
-	"awesomeProject/utils"
+	"awesomeProject/util"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -26,7 +26,7 @@ func handleFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	log.Println("User ID: " + userIdString)
 	responseFromEndpoint, err := http.Get(EndpointUrl)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 	defer func(Body io.ReadCloser) {
@@ -40,14 +40,14 @@ func handleFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	var posts []models.Post
 	err = json.NewDecoder(responseFromEndpoint.Body).Decode(&posts)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 
 	var userPosts []models.Post
 	userId, err := strconv.Atoi(userIdString)
 	if err != nil {
-		utils.HandleError(fmt.Errorf("invalid userId received"), responseWriter)
+		util.HandleError(fmt.Errorf("invalid userId received"), responseWriter)
 		return
 	}
 
@@ -58,18 +58,18 @@ func handleFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	}
 
 	if len(userPosts) == 0 {
-		utils.HandleError(fmt.Errorf("no posts for requested user"), responseWriter)
+		util.HandleError(fmt.Errorf("no posts for requested user"), responseWriter)
 		return
 	}
 	responseWriter.Header().Add("Content-Type", "application/json")
 	responseBytes, err := json.Marshal(userPosts)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 	_, err = responseWriter.Write(responseBytes)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 

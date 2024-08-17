@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example.com/web-service-gin/handlers"
+	"awesomeProject/handlers"
 	"github.com/gin-gonic/gin"
 	"log"
 )

@@ -1,6 +1,8 @@
 package services
 
-import "example.com/web-service-gin/models"
+import (
+	"awesomeProject/models"
+)
 
 type IService interface {
 	GetPostsFromEndpoint(endpoint string) ([]models.Post, error)

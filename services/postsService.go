@@ -1,10 +1,10 @@
 package services
 
 import (
+	"awesomeProject/constants"
+	"awesomeProject/models"
+	"awesomeProject/utils"
 	"encoding/json"
-	"example.com/web-service-gin/constants"
-	"example.com/web-service-gin/models"
-	"example.com/web-service-gin/utils"
 	"io"
 	"log"
 	"net/http"

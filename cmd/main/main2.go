@@ -2,7 +2,7 @@ package main
 
 import (
 	"awesomeProject/models"
-	"awesomeProject/utils"
+	"awesomeProject/util"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -22,7 +22,7 @@ func handlerFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	log.Println("User ID: " + userIdString)
 	responseFromEndpoint, err := http.Get("https://jsonplaceholder.typicode.com/posts")
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 
@@ -37,13 +37,13 @@ func handlerFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	var posts []models.Post
 	err = json.NewDecoder(responseFromEndpoint.Body).Decode(&posts)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 	var userPosts []models.Post
 	userId, err := strconv.Atoi(userIdString)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 
@@ -54,21 +54,21 @@ func handlerFunc(responseWriter http.ResponseWriter, request *http.Request) {
 	}
 
 	if len(userPosts) == 0 {
-		utils.HandleError(fmt.Errorf(fmt.Sprintf("no posts found for the user with id: %d ", userId)),
+		util.HandleError(fmt.Errorf(fmt.Sprintf("no posts found for the user with id: %d ", userId)),
 			responseWriter)
 		return
 	}
 
 	responseBody, err := json.Marshal(&userPosts)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 
 	responseWriter.Header().Add("Content-Type", "application/json")
 	_, err = responseWriter.Write(responseBody)
 	if err != nil {
-		utils.HandleError(err, responseWriter)
+		util.HandleError(err, responseWriter)
 		return
 	}
 }

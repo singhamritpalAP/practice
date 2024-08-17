@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"example.com/web-service-gin/DummyData"
-	"example.com/web-service-gin/constants"
-	"example.com/web-service-gin/models"
-	"example.com/web-service-gin/services"
+	"awesomeProject/DummyData"
+	"awesomeProject/constants"
+	"awesomeProject/models"
+	"awesomeProject/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

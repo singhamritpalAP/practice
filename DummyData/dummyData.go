@@ -1,6 +1,6 @@
 package DummyData
 
-import "example.com/web-service-gin/models"
+import "awesomeProject/models"
 
 // Albums slice to seed record album data.
 var Albums = []models.Album{
