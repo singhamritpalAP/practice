@@ -60,3 +60,43 @@ func (service *PostsService) GetPostById(userId string) ([]models.Post, error) {
 	}
 	return userPosts, nil
 }
+
+func (service *PostsService) PostContentToEndpoint(content models.Post, endPoint string) (models.Post, error) {
+	contentBytes, err := json.Marshal(content)
+	if err != nil {
+		log.Println("Error: marshalling data due to: ", err.Error())
+		return models.Post{}, nil
+	}
+
+	headers := make(map[string]string)
+	headers["Content-Type"] = "application/json"
+	req, err := service.utils.BuildRequest(endPoint, "POST", headers, contentBytes)
+	if err != nil {
+		log.Println("Error: building request due to: ", err.Error())
+		return models.Post{}, nil
+	}
+	client := &http.Client{}
+	resp, err := client.Do(&req)
+	if err != nil {
+		log.Println("Error: sending request due to: ", err)
+		return models.Post{}, nil
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			return
+		}
+	}(resp.Body)
+
+	//if resp.StatusCode != http.StatusOK {
+	//	log.Println("Error: sending request due to: ", resp.Status)
+	//	return constants.ErrSendingRequest
+	//}
+	var postedContent models.Post
+	err = json.NewDecoder(resp.Body).Decode(&postedContent)
+	if err != nil {
+		log.Println("Error: ", err.Error())
+		return models.Post{}, nil
+	}
+	return postedContent, nil
+}

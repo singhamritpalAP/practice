@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"awesomeProject/DummyData"
-	"awesomeProject/constants"
 	"awesomeProject/models"
 	"awesomeProject/services"
 	"github.com/gin-gonic/gin"
@@ -29,21 +28,4 @@ func (handler *Handler) PostAlbums(ctx *gin.Context) {
 	}
 	DummyData.Albums = append(DummyData.Albums, newAlbum)
 	ctx.JSON(http.StatusOK, newAlbum)
-}
-
-func (handler *Handler) GetAllPosts(ctx *gin.Context) {
-	post, err := handler.service.GetPostsFromEndpoint(constants.Endpoint)
-	if err != nil {
-		ctx.JSON(http.StatusNotFound, gin.H{"message": err.Error()})
-	}
-	ctx.JSON(http.StatusOK, post)
-}
-
-func (handler *Handler) GetPostById(ctx *gin.Context) {
-	id := ctx.Param("id")
-	post, err := handler.service.GetPostById(id)
-	if err != nil {
-		ctx.JSON(http.StatusNotFound, gin.H{"message": err.Error()})
-	}
-	ctx.JSON(http.StatusOK, post)
 }

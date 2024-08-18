@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bytes"
 	"log"
 	"net/http"
 	"strconv"
@@ -22,4 +23,15 @@ func (utils *Utils) GetIntegerValueFromString(str string) (int, error) {
 		return 0, err
 	}
 	return intValue, nil
+}
+
+func (utils *Utils) BuildRequest(url string, method string, headers map[string]string, body []byte) (http.Request, error) {
+	req, err := http.NewRequest(method, url, bytes.NewBuffer(body))
+	if err != nil {
+		return http.Request{}, err
+	}
+	for key, value := range headers {
+		req.Header.Set(key, value)
+	}
+	return *req, nil
 }

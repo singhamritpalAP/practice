@@ -13,6 +13,7 @@ func main() {
 	router.POST("/albums", handler.PostAlbums)
 	router.GET("/posts", handler.GetAllPosts)
 	router.GET("/posts/:id", handler.GetPostById)
+	router.POST("/posts", handler.PostContent)
 
 	err := router.Run("localhost:8080")
 	if err != nil {
