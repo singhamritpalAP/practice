@@ -1,4 +1,4 @@
-package main
+package solutions
 
 func Search(arr []int, target int, low int, high int) int {
 	for low <= high {

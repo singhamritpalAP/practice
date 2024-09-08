@@ -1,4 +1,4 @@
-package main
+package solutions
 
 func RotateArray(arr []int, rotate int) []int {
 	resp := make([]int, len(arr))
