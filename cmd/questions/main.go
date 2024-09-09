@@ -9,6 +9,7 @@ func main() {
 	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	nums := []int{3, 4, 5, 1, 2}
 	arr2 := []int{1, 2, 3, 4, 4, 4, 7, 8, 9}
+	mountainArray := []int{0, 10, 5, 2}
 	target := 9
 	rotate := 4
 
@@ -22,4 +23,5 @@ func main() {
 
 	fmt.Println("Search result: ", solutions.SearchRange(arr2, 4))
 
+	fmt.Println("Peak index in mountain array is: ", solutions.PeakIndexInMountainArray(mountainArray))
 }
