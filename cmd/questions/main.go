@@ -27,4 +27,5 @@ func main() {
 	fmt.Println("Peak index in mountain array is: ", solutions.PeakIndexInMountainArray(mountainArray))
 
 	fmt.Println("Duplicate elements are: ", solutions.FindDuplicates(duplicateArray))
+	fmt.Println("Disappeared elements are: ", solutions.FindDisappearedNumbers(duplicateArray))
 }
