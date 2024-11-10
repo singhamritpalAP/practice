@@ -1,14 +1,13 @@
 package solutions
 
-import "fmt"
-
 // LC - 75
-func SortColors(nums []int, approach int) {
+func SortColors(nums []int, approach int) []int {
 	if approach == 1 {
 		approach1(nums)
 	} else if approach == 2 {
 		approach2(nums)
 	}
+	return nums
 }
 
 func approach1(nums []int) {
@@ -28,7 +27,6 @@ func approach1(nums []int) {
 	for i := j; i < len(nums); i++ {
 		j = swapIfNeeded(nums, i, j, 2)
 	}
-	fmt.Println(nums)
 }
 
 func approach2(nums []int) {
@@ -58,7 +56,6 @@ func approach2(nums []int) {
 		twos--
 		i++
 	}
-	fmt.Println(nums)
 }
 
 // func swap(nums []int, index int, correctIndex int) {
