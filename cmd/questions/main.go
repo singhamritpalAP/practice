@@ -12,6 +12,7 @@ func main() {
 	arr2 := []int{1, 2, 3, 4, 4, 4, 7, 8, 9}
 	mountainArray := []int{0, 10, 5, 2}
 	duplicateArray := []int{4, 3, 2, 7, 8, 2, 3, 1}
+	prices := []int{7, 1, 5, 3, 6, 4}
 	target := 9
 	rotate := 4
 
@@ -32,5 +33,7 @@ func main() {
 
 	fmt.Println("Sort Colors: LC - 75: bruteF approach", solutions.SortColors(nums2, 1))
 	fmt.Println("Sort Colors: LC - 75: another approach", solutions.SortColors(nums2, 2))
+
+	fmt.Println("Max Profit: LC - 121: ", solutions.MaxProfit(prices))
 
 }
