@@ -8,6 +8,7 @@ import (
 func main() {
 	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	nums := []int{3, 4, 5, 1, 2}
+	nums2 := []int{0, 0, 1}
 	arr2 := []int{1, 2, 3, 4, 4, 4, 7, 8, 9}
 	mountainArray := []int{0, 10, 5, 2}
 	duplicateArray := []int{4, 3, 2, 7, 8, 2, 3, 1}
@@ -28,4 +29,11 @@ func main() {
 
 	fmt.Println("Duplicate elements are: ", solutions.FindDuplicates(duplicateArray))
 	fmt.Println("Disappeared elements are: ", solutions.FindDisappearedNumbers(duplicateArray))
+
+	fmt.Println("Sort Colors: LC - 75: bruteF approach")
+	solutions.SortColors(nums2, 1)
+
+	fmt.Println("Sort Colors: LC - 75: another approach")
+	solutions.SortColors(nums2, 2)
+
 }

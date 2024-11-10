@@ -2,6 +2,7 @@ package solutions
 
 import "math"
 
+// LC - 73
 func setZeroes(matrix [][]int) {
 	for i := 0; i < len(matrix); i++ {
 		isRowSet := false
