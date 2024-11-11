@@ -15,6 +15,7 @@ func main() {
 	prices := []int{7, 1, 5, 3, 6, 4}
 	target := 9
 	rotate := 4
+	rows := 5
 
 	fmt.Println("Search result: ", solutions.Search(arr, target, 0, len(arr)-1))
 
@@ -35,5 +36,8 @@ func main() {
 	fmt.Println("Sort Colors: LC - 75: another approach", solutions.SortColors(nums2, 2))
 
 	fmt.Println("Max Profit: LC - 121: ", solutions.MaxProfit(prices))
+
+	fmt.Println("Print n rows of pascals triangle: LC - 118: ", solutions.Generate(rows, 1))
+	fmt.Println("Better approach for: Print n rows of pascals triangle: LC - 118: ", solutions.Generate(rows, 2))
 
 }
