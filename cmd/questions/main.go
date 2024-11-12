@@ -9,6 +9,7 @@ func main() {
 	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	nums := []int{3, 4, 5, 1, 2}
 	nums2 := []int{0, 1, 0, 2}
+	nums3 := []int{5, 4, -1, 7, 8}
 	arr2 := []int{1, 2, 3, 4, 4, 4, 7, 8, 9}
 	mountainArray := []int{0, 10, 5, 2}
 	duplicateArray := []int{4, 3, 2, 7, 8, 2, 3, 1}
@@ -39,5 +40,7 @@ func main() {
 
 	fmt.Println("Print n rows of pascals triangle: LC - 118: ", solutions.Generate(rows, 1))
 	fmt.Println("Better approach for: Print n rows of pascals triangle: LC - 118: ", solutions.Generate(rows, 2))
+
+	fmt.Println("Max sub array sum: LC - 53:", solutions.MaxSubArraySum(nums3, 2))
 
 }
