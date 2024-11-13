@@ -14,6 +14,7 @@ func main() {
 	mountainArray := []int{0, 10, 5, 2}
 	duplicateArray := []int{4, 3, 2, 7, 8, 2, 3, 1}
 	prices := []int{7, 1, 5, 3, 6, 4}
+	matrix := [][]int{{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}}
 	target := 9
 	rotate := 4
 	rows := 5
@@ -42,5 +43,6 @@ func main() {
 	fmt.Println("Better approach for: Print n rows of pascals triangle: LC - 118: ", solutions.Generate(rows, 2))
 
 	fmt.Println("Max sub array sum: LC - 53:", solutions.MaxSubArraySum(nums3, 2))
+	fmt.Println("Rotate matrix: LC - 48:", solutions.Rotate(matrix))
 
 }
