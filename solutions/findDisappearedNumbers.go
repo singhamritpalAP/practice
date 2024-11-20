@@ -1,7 +1,7 @@
 package solutions
 
 func FindDisappearedNumbers(nums []int) []int {
-	sort(nums)
+	sortArr(nums)
 	var res []int
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != i+1 {

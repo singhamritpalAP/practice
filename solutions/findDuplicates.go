@@ -1,7 +1,7 @@
 package solutions
 
 func FindDuplicates(nums []int) []int {
-	sort(nums)
+	sortArr(nums)
 	var res []int
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != i+1 {
@@ -21,7 +21,7 @@ func FindDuplicates(nums []int) []int {
 // 1	2	3	4	3	2	7	8
 // so element not at correct index is duplicate
 
-func sort(nums []int) {
+func sortArr(nums []int) {
 	index := 0
 	for index < len(nums) {
 		correctIndex := nums[index] - 1
