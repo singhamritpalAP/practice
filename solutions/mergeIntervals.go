@@ -6,7 +6,7 @@ import (
 
 func Merge(intervals [][]int) [][]int {
 	result := make([][]int, 1)
-	sort.SliceStable(intervals, func(i, j int) bool {
+	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
 	result[0] = intervals[0]
